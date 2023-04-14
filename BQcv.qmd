@@ -1,0 +1,254 @@
+---
+name: Barry Quinn
+address: "Queen's Business School,\\tabularnewline Queen's University Belfast, BT9 1NN, N. Ireland."
+www: quinference.com
+phone: +44 787 238 2074
+email: "b.quinn@qub.ac.uk"
+twitter: con0metrix
+github: quinfer
+date: "`r format(Sys.Date(), '%B %Y')`"
+date-format: "MMMM YYYY"
+position:  BSc (Hons), PhD, CStat
+bibliography: [rjhreports.bib]
+format: cv-pdf
+header-includes:
+  \definecolor{headcolor}{HTML}{000088}
+---
+
+\newcounter{bib}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  cache = FALSE
+)
+library(dplyr)
+library(RefManageR)
+library(gcite)
+source("functions.R")
+
+# Google scholar stats
+bq <- gcite_citation_index(
+  gcite_url("https://scholar.google.com/citations?user=q6wJceEAAAAJ&hl=en")
+)
+
+# Read any bib files
+pubs <- ReadBib("bqpubs.bib", check = FALSE)
+
+# Read grants file
+grants <- readr::read_csv("Grant_income.csv")
+
+```
+
+# Education and qualifications
+
+```{r degrees, results='asis'}
+tribble(
+  ~Degree, ~Institution, ~Year,
+  "B.Sc.(Hons)", "Queen's University Belfast", 1995,
+  "MSc","RMIT University Melbourne",2002,
+  "Ph.D.", "Queen's University Belfast", 2012,
+  "C.Stat.", "Royal Statistical Society", 2019
+) |>
+  baretable()
+```
+
+# Fellowships
+
+  * Fellow of the Institute of Electronics, Communication and Information Technology in Queen's University Belfast (elected 2021).
+  * Fellow of the Centre for Responsible Banking and Finance, Edinburgh (elected 2013).
+
+# Employment history
+
+```{r employment, results='asis'}
+tribble(
+  ~Start, ~End, ~Position,
+  1995, 1998, "\\textbf{Financial Adviser}, City Financial Partners, London",
+  1998, 2000, "\\textbf{Unit Trust Dealer}, Janus Henderson Investors, London",
+  2000, 2004, "\\textbf{Currency Trader/Liquidity Manager}, Janus Henderson Investors, London",
+  2005, 2005, "\\textbf{Teaching Fellow}, Department of Finance, RMIT University Melbourne",
+  2008, 2009, "\\textbf{Teaching Fellow}, Business School, Ulster University",
+  2010, 2020, "\\textbf{Lecturer}, Department of Finance, Queen's Management School",
+  2020, 2023, "\\textbf{Senior Lecturer},Department of Finance, Queen's Management School"
+) |>
+  arrange(-Start) |>
+  mutate(
+    Start = as.character(Start),
+    End = as.character(End),
+    End = tidyr::replace_na(End, ""),
+    Years = if_else(End == Start,
+      as.character(Start),
+      paste(Start, "--", End, sep = ""),
+      paste(Start, "--", End, sep = "")
+    )
+  ) |>
+  select(Years, Position) |>
+  baretable()
+```
+
+# Academic and research leadership
+
+  * **Director**, Finance, Technology and AI lab, Queen's University Belfast. 2022--.
+  * **QUB Academic Lead**, Steering group for research centre for secure connected intelligence in financial and regulatory technology, Belfast.
+  * **Programme Director**, MSc Quantitative Finance, Queen's University Belfast. 2012--2021.
+  * **Founder**, Queen's Student Managed Fund, 2012--2023.
+
+# Awards and honours
+
+```{r awards, results='asis'}
+tribble(
+  ~Year, ~Award,
+  2016, "QUB Teaching Award"
+) |>
+  filter(!grepl("HP Innovation", Award)) |>
+  baretable()
+```
+
+
+# Research
+
+  * Since 2012 I have authored `r NROW(pubs)` papers, chapters or books on statistical topics (listed on pages \pageref{papersstart}--\pageref{papersend}).
+  * On Google Scholar my h-index is `r bq$All[2]` with total citations of `r prettyNum(bq$All[1], big.mark=",")` (as at `r format(Sys.time(), "%e %B %Y")`).
+  * My current research involves the analysis of large collections of financial time series, and includes visualization, forecasting, reconciliation, modelling and anomaly detection..
+  * I currently supervise five PhD students. I have previously supervised an additional three PhD students and 10 Masters students.
+  * I publish the [*Quinferencings*](https://quinference.com/posts) blog on research issues in finance, technology and data science.
+
+# Public Teaching lectures
+
+* PhD Seminar, *Causality and AI*, Queen's Management School, Belfast, April 2023  
+* PhD Seminar, *Statistical inference for busines school research: Part 1*, Queen's Management School, Belfast, April 2022 
+* PhD Seminar, *Statistical inference for busines school research: The statistics strike back*, Queen's Management School, Belfast, Aug 2022 
+
+\enlargethispage*{0.6cm}
+
+# Major conference presentations
+
+  * Keynote Speaker, *Estimating Systemic Risk*, Irish Finance Association, Maynooth University, Ireland, April 2023
+  * Invited Talk, *Teaching data science in the age of FinTech*, Royal Statistics Society Annual Conference, Aberdeen UK, Sep 2022.
+  * Invited Talk, *Carbon pricing and machine learning*, Multidisciplinary Workshop on Fintech, Islamic Finance and Sustainability (online), Hamad Bin Khalifa University, Qatar, Nov 2022.
+  * Invited Speaker, *Understanding fintech and financial stability* ,International Workshop on Financial System Architecture and Stability, Bayes Business School, London, Sept 2018
+  * Invited Speaker, *Systemic Risk and Basel Compliance*,British Accounting and Finance Association Annual Conference,London, April 2018.
+* Invited Speaker, *Diffential regulation of Irish credit unions: Does one size fit all?*, 2nd Conference on Comtemporary Issues in Banking ,Centre for Responsible Banking and Finance, St Andrews, Dec 2017.
+  * Invited Speaker, *Business model diversity, efficiency and productivity of cooperatives*, European workshop in efficiency and productivity analysis, Aalto University, Finland, Jun 2017.
+  * Invited Panelist, *Statistical inference and credibility in finance*, Emerging Scholars in Banking and Finance, Bayes Business School, London, Dec 2016.
+  * Invited Speaker, *Capital regulation compliance and the performance of European banks*, International Workshop on Financial System Architecture and Stability, HEC Montreal, Aug 2016.
+  * Participant, *Bloomberg Annual Educational Symposium*, Bloomberg London HQ, Sep 2015.
+  
+
+# Research income
+
+```{r grants}
+sumgrants <- grants |>
+  pull(Amount) |>
+  sum(na.rm = TRUE)
+```
+
+I have acquired (in most cases jointly) $`r sprintf("%2.1f", sumgrants/1e6)` million in external research grants since 2010. External research grants over $70,000 are listed below.\vspace*{0.2cm}\enlargethispage*{0.5cm}
+
+```{r grantstable, results='asis'}
+grants |>
+  filter(Amount > 69999, Type == "Research") |>
+  mutate(
+    Time = paste0(Start, ifelse(is.na(End), "", paste0("--", End))),
+    Entry = paste(People, ". ``", Title, "''. ",
+      "\\emph{Funding from ", Source, "}",
+      sep = ""
+    ),
+    Amount = dollars(Amount)
+  ) |>
+  arrange(Time, desc(Amount)) |>
+  select(Time, Entry, Amount) %>%
+  baretable(
+    align = "llp{13.3cm}r",
+    hline.after = c(0, NROW(.)),
+    size = "\\fontsize{10}{15}",
+    add.to.row = list(
+      pos = as.list(seq(NROW(.))),
+      command = rep("\\\\[-0.3cm]", NROW(.))
+    )
+  )
+```
+
+\newpage
+
+# Teaching
+  * I design and teaching advanced topics in statistics and machine learning for finance students.
+  * In the past I have taught courses in
+    * Statistics for Business
+    * Financial Econometrics and Data Science
+    * Financial Institutions and Market
+    * Trading Principles
+  * I currently teach graduate level courses in AI and trading, and Advanced Financial Analytics.
+  * I have also designed and delivered executive education courses in:
+    * Statistical forecasting for energy markets (3-Day course for PNG Ltd demand forecasting professionals)
+    * Capital Markets and Regulation (3-Day course on Axiom Ltd)
+  * In every year since 2012, student evaluations for my teaching have given an average rating for my teaching above 4.5 out of 5.
+
+# Consulting
+
+  * Since 2016, I have worked with several different private companies in Northern Ireland. I have produced `r nrow(grants %>% filter(Type=="Consulting"))` written consulting reports (listed on pages \pageref{consultingstart}--\pageref{consultingend}).
+
+# Refereed research papers
+
+```{r research-papers}
+#| output: asis
+# Normal articles excluding editorials
+pubs[bibtype == "Article"] |>
+  add_bib_section()
+```
+
+# Papers in refereed conference proceedings
+
+```{r papers-in-proceedings}
+#| output: asis
+pubs[bibtype == "InProceedings"] |>
+  add_bib_section()
+```
+
+# Unpublished working papers
+
+```{r working-papers}
+#| output: asis
+pubs[bibtype %in% c("TechReport", "Unpublished")] |> 
+  add_bib_section()
+```
+
+
+\refstepcounter{bib}\label{papersend}
+
+# Other papers
+
+```{r other}
+#| output: asis
+# Other papers not counted above
+pubs[bibtype == "Report"]  |>
+  change_bibtype("Unpublished") |> 
+  add_bib_section()
+```
+
+# Statistical consulting reports
+
+\refstepcounter{bib}\label{consultingstart}
+
+```{r statistical-consulting}
+#| output: asis
+reports |>
+  add_bib_section(rewrite = FALSE)
+```
+
+\refstepcounter{bib}\label{consultingend}
+
+# Software (R packages)
+
+\refstepcounter{bib}\label{packagestart}
+
+```{r r-packages-list}
+#| output: asis
+# Keep order of R packages as they are already sorted by package name
+packages |>
+  add_bib_section(sorting = "none")
+```
+
+\refstepcounter{bib}\label{packageend}

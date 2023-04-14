@@ -216,7 +216,7 @@ add_bib_section <- function(x, sorting = "ynt", show_cites = FALSE, rewrite = TR
   } else {
     keys <- names(x)
   }
-  # Now add refsection
+  # Now add ref section
   cat("\\begin{refsection}")
   cat(paste0("\\nocite{", keys, "}"))
   cat("\\printbibliography[heading=none]")
