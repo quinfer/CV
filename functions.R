@@ -25,7 +25,7 @@ baretable <- function(tbl, digits = 0,
 # Return dollars in pretty manner.
 # Similar to prettyNum but with $ sign and working for numbers greater than 1e7
 dollars <- function(x) {
-  out <- paste0("\\$", sprintf("%.0f", x))
+  out <- paste0("£", sprintf("%.0f", x))
   paste0(gsub(
     "^0+\\.", ".",
     unname(prettyNum(out, ",", preserve.width = "none", scientific = FALSE))
