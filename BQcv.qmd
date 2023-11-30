@@ -47,10 +47,11 @@ grants <- readr::read_csv("Grant_income.csv")
 ```{r degrees, results='asis'}
 tribble(
   ~Degree, ~Institution, ~Year,
-  "B.Sc.(Hons)", "Queen's University Belfast", 1995,
-  "MSc","RMIT University Melbourne",2006,
-  "Ph.D.", "Queen's University Belfast", 2012,
-  "C.Stat.", "Royal Statistical Society", 2019
+  "B.Sc.(Hons) Accounting and Finance", "Queen's University Belfast", "1995",
+  "MSc Quant Finance","RMIT University Melbourne","2006",
+  "Ph.D. Finance", "Queen's University Belfast", "2012",
+  "Chartered Statistician", "Royal Statistical Society", "2019",
+  "MSc AI","Queen's University Belfast","Graduating 2025"
 ) |>
   baretable()
 ```
@@ -92,7 +93,8 @@ tribble(
 
   * **Director**, Finance, Technology and AI lab, Queen's University Belfast. 2022--.
   * **QUB Academic Lead**, Steering group for Northern Ireland global centre in secure connected intelligence for regulatory technology in finance.
-  * **Programme Director**, MSc Quantitative Finance, Queen's University Belfast. 2012--2021.
+  * **Programme Director**, MSc Quantitative Finance, Queen's University Belfast. 2018--2022.
+   * **Programme Director**, MSc Computational Finance & Trading, Queen's University Belfast. 2014--2018.
   * **Founder**, Queen's Student Managed Fund, 2012--2023.
 
 # Awards and honours
@@ -100,7 +102,8 @@ tribble(
 ```{r awards, results='asis'}
 tribble(
   ~Year, ~Award,
-  2016, "QUB Teaching Award"
+  2016, "QUB Teaching Award",
+  2018, "European CFA Quant Award (1st)"
 ) |>
   filter(!grepl("HP Innovation", Award)) |>
   baretable()
