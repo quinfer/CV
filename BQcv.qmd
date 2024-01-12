@@ -51,7 +51,7 @@ tribble(
   "MSc Quant Finance","RMIT University Melbourne","2006",
   "Ph.D. Finance", "Queen's University Belfast", "2012",
   "Chartered Statistician", "Royal Statistical Society", "2019",
-  "MSc AI","Queen's University Belfast","Graduating 2025"
+  "MSc Artificial Intelligence","Queen's University Belfast","Graduating 2025"
 ) |>
   baretable()
 ```

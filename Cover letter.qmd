@@ -1,0 +1,19 @@
+---
+title: "Cover letter for Analytics Engines Career"
+author: "Barry Quinn CStat PhD"
+format: pdf
+editor: visual
+---
+Dear Analytics Engine,
+
+I am writing to express strong interest in the Senior Data Scientist position at Analytics Engines based on the excellent match between my skills and the role requirements. As an experienced lecturer, researcher, and consultant skilled in applying statistics, machine learning, and AI to solve complex business challenges, I am confident I can drive significant value and innovation in this data science leadership role.
+
+As outlined in my attached CV, I hold a PhD in Finance and 15+ years of industry and academic experience spanning advanced data analytics, modelling, visualization, and research. I have delivered data science solutions that improve efficiency and productivity in finance, climate policy, sports economics, and more. As Director of the Finance, Technology and AI Lab at Queen's University Belfast, I actively collaborate with industry partners, lead student teams, and oversee cutting-edge applied research leveraging the latest techniques.
+
+In addition, I have secured £1.59 million in competitive research grants, published 12 peer-reviewed papers, and filed two open-source software packages, demonstrating my ability to ideate and deliver impactful data products. My teaching evaluations rate me highly as an educator who can break down technical concepts. I am an eager mentor as well, currently supervising 6 PhD students. This blend of technical expertise, research innovation, solution delivery, communication ability, and coaching experience aligns perfectly with the leadership capabilities and responsibilities stated in the Senior Data Scientist job description.
+
+Analytics Engines' exciting work with partners like Innovate UK and focus on customer-centric AI solutions resonates strongly with my passions. I would welcome collaborating with your talented teams to create models and platforms driving greater value through data and analytics. I aim to support Analytics Engines' growth while nurturing team skills and knowledge. I can confidently guide complex client engagements and innovative R&D initiatives to expand your offerings and reputation as a top AI consultancy. I would appreciate the chance to discuss further how my background uniquely positions me to add value to this role. Don't hesitate to contact me by phone or email to arrange a meeting. Thank you for your time and consideration.
+
+Best regards, 
+![](signature.png){width="20%"}
+Barry Quinn CStat PhD
