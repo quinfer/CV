@@ -67,7 +67,7 @@ tribble(
 tribble(
   ~Start, ~End, ~Position,
   1995, 1998, "\\textbf{Financial Adviser}, City Financial Partners, London",
-  1998, 2000, "\\textbf{Unit Trust Dealer}, Janus Henderson Investors, London",
+  1998, 2000, "\\textbf{Unit and Investment Trust Dealer}, Janus Henderson Investors, London",
   2000, 2004, "\\textbf{Currency Trader/Liquidity Manager}, Janus Henderson Investors, London",
   2005, 2005, "\\textbf{Teaching Fellow}, Department of Finance, RMIT University Melbourne",
   2009, 2009, "\\textbf{Teaching Fellow}, Business School, Ulster University",
