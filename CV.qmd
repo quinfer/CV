@@ -124,8 +124,29 @@ tribble(
 
   * Since 2012, I have authored `r NROW(pubs)` papers and reports on topics in econometrics and data science, state-of-the-art efficiency and productivity analysis, risk implications of policy actions in banking and climate finance, and association football economics.
   * On Google Scholar, my h-index is `r bq$All[2]` with total citations of `r prettyNum(bq$All[1], big.mark=",")` (as of `r format(Sys.time(), "%e %B %Y")`).
-  * My current research involves the application of statistics and machine learning to complex problems in capital regulation, systemic risk, climate risk, and trade surveillance.
-  * I currently supervise six PhD students (including one visiting PhD student). I have previously supervised an additional three PhD students and ten Masters students.
+  * My current research involves the application of statistics and machine learning to complex problems in finance.
+  * I have extensive experience in PhD supervision:
+    * Successfully supervised four PhD students to completion as principal supervisor.
+    * Currently serving as principal supervisor for three PhD students.
+    * Co-supervising two additional PhD students.
+  * My PhD students' research spans diverse topics including firm value and gender diverse, climate risk premium and measurement uncertainty, machine learning in asset pricing, ESG metrics and XAI, and fintech applications for regulatory compliance.
+
+# PhD Supervision
+
+I have a strong track record in guiding doctoral research:
+
+* **Completed Supervisions:** Successfully supervised three PhD students to completion as principal supervisor.
+* **Current Supervisions:**
+  * Principal supervisor for three ongoing PhD projects.
+  * Co-supervisor for two additional PhD students.
+* **Research Areas:** My PhD students' work covers a wide range of cutting-edge topics in finance and data science, including:
+  * Climate risk modeling and financial implications
+  * Machine learning applications in asset pricing
+  * ESG metrics and Explainable AI (XAI)
+  * Fintech innovations for financial regulation
+  * Economic costs of cultural displays
+
+This extensive supervision experience demonstrates my commitment to nurturing the next generation of researchers and my ability to guide complex, interdisciplinary projects at the intersection of finance, technology, and data science.
 
 # Current Projects
 
