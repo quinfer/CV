@@ -236,3 +236,4 @@ Rpackages.Rout
 .vscode/*
 
 /.quarto/
+.DS_Store
