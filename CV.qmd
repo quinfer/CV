@@ -46,7 +46,16 @@ grants <- readr::read_csv("Grant_income.csv")
 
 As a Senior Lecturer in Finance, Technology, and Data Science at Queen's University Belfast, I bridge the gap between academic research and industry innovation. My work focuses on applying advanced statistical and machine learning techniques to complex problems in finance, with a particular emphasis on regulatory technology, systemic risk, and ethical AI development in financial services.
 
-# Education and qualifications
+# Skills and Expertise
+
+* Advanced statistical modeling and machine learning
+* AI applications in finance and trading
+* Regulatory technology (RegTech) and compliance
+* Financial risk management and systemic risk analysis
+* Data science and big data analytics in finance
+* Interdisciplinary research leadership
+
+# Education and professional qualifications
 
 ```{r degrees, results='asis'}
 tribble(
@@ -59,10 +68,6 @@ tribble(
 ) |>
   baretable()
 ```
-
-# Professional Qualifications
-
-* Chartered Statistician (CStat), Royal Statistical Society, 2019
 
 # Employment history
 
@@ -91,7 +96,7 @@ tribble(
   baretable()
 ```
 
-# Academic and research leadership
+## Academic and research leadership
 
   * **Co-director**, Finance, Technology and AI lab, Queen's University Belfast, 2022--.
   * **QUB Academic Lead**, Steering group for Northern Ireland global centre in secure connected intelligence for regulatory technology in finance.
@@ -99,31 +104,22 @@ tribble(
   * **Programme Director**, MSc Computational Finance & Trading, Queen's University Belfast, 2014--2018.
   * **Founder**, Queen's Student Managed Fund, 2012--2023.
 
-# Awards and honours
+## Awards and honours
 
 ```{r awards, results='asis'}
 tribble(
   ~Year, ~Award,
   2016, "QUB Teaching Award",
-  2018, "European CFA Quant Award (1st)",
+  2018, "European CFA Quant Award Mentor (1st)",
   2021, "Associate Research Fellow, Global Innovation Institute"
 ) |>
   baretable()
 ```
 
-# Skills and Expertise
-
-* Advanced statistical modeling and machine learning
-* AI applications in finance and trading
-* Regulatory technology (RegTech) and compliance
-* Financial risk management and systemic risk analysis
-* Data science and big data analytics in finance
-* Interdisciplinary research leadership
 
 # Research
 
   * Since 2012, I have authored `r NROW(pubs)` papers and reports on topics in econometrics and data science, state-of-the-art efficiency and productivity analysis, risk implications of policy actions in banking and climate finance, and association football economics.
-  * On Google Scholar, my h-index is `r bq$All[2]` with total citations of `r prettyNum(bq$All[1], big.mark=",")` (as of `r format(Sys.time(), "%e %B %Y")`).
   * My current research involves the application of statistics and machine learning to complex problems in finance.
   * I have extensive experience in PhD supervision:
     * Successfully supervised four PhD students to completion as principal supervisor.
@@ -131,7 +127,41 @@ tribble(
     * Co-supervising two additional PhD students.
   * My PhD students' research spans diverse topics including firm value and gender diverse, climate risk premium and measurement uncertainty, machine learning in asset pricing, ESG metrics and XAI, and fintech applications for regulatory compliance.
 
-# PhD Supervision
+## Research income
+
+```{r grants}
+sumgrants <- grants |>
+  pull(Amount) |>
+  sum(na.rm = TRUE)
+```
+
+I have acquired (in most cases jointly) £`r sumgrants/1e6` million in external research grants since 2010. External research grants over £70,000 are listed below.\vspace*{0.2cm}\enlargethispage*{0.5cm}
+
+```{r grantstable, results='asis'}
+grants |>
+  mutate(
+    Time = paste0(Start, ifelse(is.na(End), "", paste0("--", End))),
+    Entry = paste(People, ". ``", Title, "''. ",
+      "\\emph{Funding from ", Source, "}",
+      sep = ""
+    ),
+    Amount = dollars(Amount)
+  ) |>
+  arrange(Time, desc(Amount)) |>
+  select(Time, Entry, Amount) %>%
+  baretable(
+    align = "llp{13.3cm}r",
+    hline.after = c(0, NROW(.)),
+    size = "\\fontsize{10}{15}",
+    add.to.row = list(
+      pos = as.list(seq(NROW(.))),
+      command = rep("\\\\[-0.3cm]", NROW(.))
+    )
+  )
+```
+
+
+## PhD Supervision
 
 I have a strong track record in guiding doctoral research:
 
@@ -161,7 +191,7 @@ This extensive supervision experience demonstrates my commitment to nurturing th
 # Industry Collaboration
 
 * FCA Mentor for Tech Sprint on market manipulation (2023-present)
-* Lead academic on knowledge transfer projects with Fund Axis Ltd and Research Affiliates Inc (2022-present)
+* Lead academic on three knowledge transfer projects with financial services firms
 * Collaboration with Citigroup on AI applications for detecting trading anomalies (2021-2024)
 
 # Organized Conferences and Symposia
@@ -188,39 +218,6 @@ This extensive supervision experience demonstrates my commitment to nurturing th
 * Invited Speaker, *Capital regulation compliance and the performance of European banks*, International Workshop on Financial System Architecture and Stability, HEC Montreal, Aug 2016
 * Participant, *Bloomberg Annual Educational Symposium*, Bloomberg London HQ, Sep 2015
 
-# Research income
-
-```{r grants}
-sumgrants <- grants |>
-  pull(Amount) |>
-  sum(na.rm = TRUE)
-```
-
-I have acquired (in most cases jointly) £`r sumgrants/1e6` million in external research grants since 2010. External research grants over £70,000 are listed below.\vspace*{0.2cm}\enlargethispage*{0.5cm}
-
-```{r grantstable, results='asis'}
-grants |>
-  filter(Amount > 69999, Type == "Research") |>
-  mutate(
-    Time = paste0(Start, ifelse(is.na(End), "", paste0("--", End))),
-    Entry = paste(People, ". ``", Title, "''. ",
-      "\\emph{Funding from ", Source, "}",
-      sep = ""
-    ),
-    Amount = dollars(Amount)
-  ) |>
-  arrange(Time, desc(Amount)) |>
-  select(Time, Entry, Amount) %>%
-  baretable(
-    align = "llp{13.3cm}r",
-    hline.after = c(0, NROW(.)),
-    size = "\\fontsize{10}{15}",
-    add.to.row = list(
-      pos = as.list(seq(NROW(.))),
-      command = rep("\\\\[-0.3cm]", NROW(.))
-    )
-  )
-```
 
 # Teaching
 
